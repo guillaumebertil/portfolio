@@ -41,7 +41,7 @@ export default function About() {
                 <div>
                     <h3 className="text-2xl font-semibold mb-4">Mon objectif</h3>
                     <p className="text-lg">
-                        Je cherche un stage de 10 semaines dans le secteur de Dijon pour intégrer une vraie équipe, apprendre sur le terrain et contribuer à des projets concrets.
+                        En fin de formation Développeur Web et Web Mobile, je recherche un poste de développeur web junior dans le secteur de Dijon.
                     </p>
                 </div>
 
