@@ -1,9 +1,9 @@
-import heroBg from '../assets/img/hero-bg.jpg'
 import HeroIllustration from '../components/HeroIllustration'
 
-// Voile sombre sur la gauche de l'image : le texte garde un contraste suffisant
+// L'image est dans public/ pour être préchargée depuis index.html (elle s'affiche plus tôt).
+// Voile sombre sur la gauche de l'image : le texte garde un contraste suffisant.
 const heroBackground = {
-    backgroundImage: `linear-gradient(90deg, rgb(13 17 23 / 0.92) 0%, rgb(13 17 23 / 0.75) 45%, rgb(13 17 23 / 0.15) 100%), url(${heroBg})`,
+    backgroundImage: 'linear-gradient(90deg, rgb(13 17 23 / 0.92) 0%, rgb(13 17 23 / 0.75) 45%, rgb(13 17 23 / 0.15) 100%), url(/img/hero-bg.jpg)',
 }
 
 export default function Hero() {

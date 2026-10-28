@@ -11,6 +11,8 @@
          le navigateur les télécharge tout de suite, avant même d'avoir lu le CSS -->
     <link rel="preload" href="/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/jetbrains-mono-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Image de fond du hero : premier élément visible, chargée en priorité -->
+    <link rel="preload" href="/img/hero-bg.jpg" as="image" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>
