@@ -106,4 +106,12 @@
     .nav-link:focus-visible::after {
         transform: scaleX(1);
     }
+
+    /* Illustration du hero : le terminal avance légèrement au survol */
+    .hero-illustration-terminal {
+        transition: transform 0.3s ease;
+    }
+    .hero-illustration:hover .hero-illustration-terminal {
+        transform: translate(-6px, -6px);
+    }
 }

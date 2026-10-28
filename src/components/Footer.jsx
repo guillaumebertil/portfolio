@@ -9,8 +9,6 @@ export default function Footer() {
                     <i className="devicon-linkedin-plain colored text-2xl"></i>
                 </a>
             </div>
-            <p>© {new Date().getFullYear()} Guillaume Bertil - Développeur web</p>
-            <p className="text-xs opacity-50">Photo by <a href="https://unsplash.com/fr/photos/photo-en-gros-plan-du-clavier-dordinateur-WkfDrhxDMC8" target="_blank" className="underline">Christian Wiediger</a> on Unsplash</p>
-        </footer>
+            <p>© {new Date().getFullYear()} Guillaume Bertil - Développeur web</p>        </footer>
     )
 }
