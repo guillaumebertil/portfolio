@@ -23,7 +23,7 @@ export default function Portfolio() {
                 </div>
 
                 <p className="mt-8 text-muted">
-                    Le code source de mes autres projets sont disponibles sur mon{' '}
+                    Le code source de mes autres projets est disponible sur mon{' '}
                     <a href="https://github.com/guillaumebertil" target="_blank" rel="noopener noreferrer" className="link-draw text-primary">
                         GitHub
                     </a>
