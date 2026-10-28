@@ -45,6 +45,24 @@
     --noise: 0;
 }
 
+/* Polices hébergées sur le site (public/fonts), préchargées dans index.html.
+   Polices « variables » : un seul fichier couvre toutes les graisses (400 à 700). */
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/inter-latin-variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/jetbrains-mono-latin-variable.woff2") format("woff2");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Polices et couleurs de texte complémentaires (classes font-mono, text-heading, text-muted…) */
 @theme {
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
