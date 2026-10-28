@@ -1,20 +1,11 @@
-export default function Skillcard({icon, name, level}) {
-
-    const levelStyle = {
-        "Débutant": "badge-warning",
-        "Intermédiaire": "badge-success",
-        "Apprentissage": "badge-info",
-    }
-
+// Une compétence : icône, nom et niveau.
+// L'icône est décorative (alt vide) : le nom est écrit juste à côté.
+export default function SkillCard({ name, level, icon, darkIcon = false }) {
     return (
-        <div className="card bg-base-300 w-32 shadow-sm hover:scale-105 hover:shadow-secondary hover:shadow-lg">
-            <figure className="pt-4">
-                <i className={`${icon} text-6xl`}></i>
-            </figure>
-            <div className="card-body items-center text-center">
-                <h2 className="card-title text-2xl">{name}</h2>
-                <span className={`badge ${levelStyle[level]} badge-outline badge-md`}>{level}</span>
-            </div>
-        </div>
+        <li className="flex items-center gap-2.5 rounded border border-base-300 bg-base-200 px-3 py-2 font-mono text-sm transition hover:-translate-y-px hover:border-primary">
+            <img src={icon} alt="" width="22" height="22" className={darkIcon ? 'invert' : ''} />
+            <span className="text-heading">{name}</span>
+            <span className="text-muted">· {level}</span>
+        </li>
     )
 }

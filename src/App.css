@@ -1,4 +1,135 @@
 @import "tailwindcss";
+
+/* On désactive les thèmes fournis par daisyUI : seul notre thème est utilisé */
 @plugin "daisyui" {
-    themes: night --default;
-};
+    themes: false;
+}
+
+/* Thème « terminal » : fonds sombres, accent principal vert, accent secondaire ambre */
+@plugin "daisyui/theme" {
+    name: "terminal";
+    default: true;
+    prefersdark: true;
+    color-scheme: dark;
+
+    --color-base-100: #0d1117;
+    --color-base-200: #161b22;
+    --color-base-300: #30363d;
+    --color-base-content: #c9d1d9;
+
+    --color-primary: #3ddc97;
+    --color-primary-content: #0d1117;
+    --color-secondary: #f2b134;
+    --color-secondary-content: #0d1117;
+    --color-accent: #f2b134;
+    --color-accent-content: #0d1117;
+    --color-neutral: #21262d;
+    --color-neutral-content: #c9d1d9;
+
+    --color-info: #58a6ff;
+    --color-info-content: #0d1117;
+    --color-success: #3ddc97;
+    --color-success-content: #0d1117;
+    --color-warning: #f2b134;
+    --color-warning-content: #0d1117;
+    --color-error: #f87171;
+    --color-error-content: #0d1117;
+
+    --radius-selector: 0.25rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+/* Polices hébergées sur le site (public/fonts), préchargées dans index.html.
+   Polices « variables » : un seul fichier couvre toutes les graisses (400 à 700). */
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/inter-latin-variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/jetbrains-mono-latin-variable.woff2") format("woff2");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Polices et couleurs de texte complémentaires (classes font-mono, text-heading, text-muted…) */
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --color-heading: #f0f6fc;
+    --color-muted: #8b949e;
+}
+
+/* Effets de survol partagés (ils s'appliquent aussi au focus clavier) */
+@layer components {
+    /* Bouton : léger soulèvement et halo vert */
+    .btn-lift {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease,
+            border-color 0.2s ease, color 0.2s ease;
+    }
+    .btn-lift:hover,
+    .btn-lift:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-primary) 18%, transparent);
+    }
+
+    /* Lien : soulignement qui se dessine de gauche à droite, texte qui passe en ambre */
+    .link-draw {
+        text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-size: 0 1px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        transition: background-size 0.2s ease, color 0.2s ease;
+    }
+    .link-draw:hover,
+    .link-draw:focus-visible {
+        background-size: 100% 1px;
+        color: var(--color-secondary);
+    }
+
+    /* Lien de navigation : texte qui s'éclaircit et barre verte dessous */
+    .nav-link {
+        position: relative;
+        transition: color 0.2s ease;
+    }
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.25rem;
+        height: 2px;
+        background: var(--color-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease;
+    }
+    .nav-link:hover,
+    .nav-link:focus-visible {
+        color: var(--color-heading);
+    }
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    /* Illustration du hero : le terminal avance légèrement au survol */
+    .hero-illustration-terminal {
+        transition: transform 0.3s ease;
+    }
+    .hero-illustration:hover .hero-illustration-terminal {
+        transform: translate(-6px, -6px);
+    }
+}
