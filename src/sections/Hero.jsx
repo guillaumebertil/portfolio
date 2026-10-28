@@ -19,7 +19,7 @@ export default function Hero() {
                         <span className="text-primary">guillaume@dijon</span>:<span className="text-secondary">~</span>$ whoami
                     </p>
                     <h1 className="font-mono text-4xl font-bold leading-tight tracking-tight text-heading sm:text-5xl">
-                        Guillaume Bertil<span className="text-primary" aria-hidden="true">█</span>
+                        Guillaume Bertil
                     </h1>
                     <p className="mt-4 font-mono text-xl text-primary sm:text-2xl">&lt; Développeur web /&gt;</p>
                     <p className="mt-7 mb-9 max-w-xl text-lg leading-relaxed">
