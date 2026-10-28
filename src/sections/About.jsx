@@ -1,18 +1,23 @@
 import SectionTitle from '../components/SectionTitle'
 import FeaturedProject from '../components/FeaturedProject'
+import AboutCard from '../components/About/AboutCard'
+import { MapIcon, LightbulbIcon, TargetIcon } from '../components/About/AboutIcons'
 
 const badges = ['Dijon', 'Disponible dès maintenant', 'Formation DWWM - CEF']
 
-const paragraphs = [
+const cards = [
     {
+        icon: <MapIcon />,
         title: 'Mon parcours',
         text: "Après 9 ans comme Brigadier-chef dans le régiment du Train, j'ai quitté l'armée en 2024 et commencé à apprendre le développement web en 2025. Un changement radical, mais une même façon d'aborder les choses : méthode, rigueur et sens des responsabilités.",
     },
     {
+        icon: <LightbulbIcon />,
         title: 'Mes motivations',
         text: "Ce qui m'attire dans le code, c'est la logique et la satisfaction de construire quelque chose de concret. Aujourd'hui en formation DWWM au CEF, je travaille principalement avec React et je monte en compétences sur Laravel et Symfony.",
     },
     {
+        icon: <TargetIcon />,
         title: 'Mon objectif',
         text: 'En fin de formation Développeur Web et Web Mobile, je recherche un poste de développeur web junior dans le secteur de Dijon.',
     },
@@ -32,12 +37,9 @@ export default function About() {
                     ))}
                 </ul>
 
-                <div className="mb-12 grid gap-8 md:grid-cols-3">
-                    {paragraphs.map((paragraph) => (
-                        <div key={paragraph.title}>
-                            <h3 className="mb-2.5 text-xl font-semibold text-heading">{paragraph.title}</h3>
-                            <p className="leading-relaxed">{paragraph.text}</p>
-                        </div>
+                <div className="mb-12 grid gap-5 md:grid-cols-3">
+                    {cards.map((card) => (
+                        <AboutCard key={card.title} icon={card.icon} title={card.title} text={card.text} />
                     ))}
                 </div>
 
