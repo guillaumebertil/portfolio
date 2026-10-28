@@ -1,4 +1,54 @@
 @import "tailwindcss";
+
+/* On désactive les thèmes fournis par daisyUI : seul notre thème est utilisé */
 @plugin "daisyui" {
-    themes: night --default;
-};
+    themes: false;
+}
+
+/* Thème « terminal » : fonds sombres, accent principal vert, accent secondaire ambre */
+@plugin "daisyui/theme" {
+    name: "terminal";
+    default: true;
+    prefersdark: true;
+    color-scheme: dark;
+
+    --color-base-100: #0d1117;
+    --color-base-200: #161b22;
+    --color-base-300: #30363d;
+    --color-base-content: #c9d1d9;
+
+    --color-primary: #3ddc97;
+    --color-primary-content: #0d1117;
+    --color-secondary: #f2b134;
+    --color-secondary-content: #0d1117;
+    --color-accent: #f2b134;
+    --color-accent-content: #0d1117;
+    --color-neutral: #21262d;
+    --color-neutral-content: #c9d1d9;
+
+    --color-info: #58a6ff;
+    --color-info-content: #0d1117;
+    --color-success: #3ddc97;
+    --color-success-content: #0d1117;
+    --color-warning: #f2b134;
+    --color-warning-content: #0d1117;
+    --color-error: #f87171;
+    --color-error-content: #0d1117;
+
+    --radius-selector: 0.25rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+/* Polices et couleurs de texte complémentaires (classes font-mono, text-heading, text-muted…) */
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --color-heading: #f0f6fc;
+    --color-muted: #8b949e;
+}

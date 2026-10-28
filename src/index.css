@@ -1,3 +1,22 @@
-html {
-  scroll-behavior: smooth;
+/* Défilement doux vers les ancres, seulement si l'utilisateur accepte les animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* L'en-tête est collant : on décale les ancres pour que les titres ne passent pas dessous */
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+/* Animations réduites : on coupe les transitions et les déplacements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
