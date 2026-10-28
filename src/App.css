@@ -52,3 +52,58 @@
     --color-heading: #f0f6fc;
     --color-muted: #8b949e;
 }
+
+/* Effets de survol partagés (ils s'appliquent aussi au focus clavier) */
+@layer components {
+    /* Bouton : léger soulèvement et halo vert */
+    .btn-lift {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease,
+            border-color 0.2s ease, color 0.2s ease;
+    }
+    .btn-lift:hover,
+    .btn-lift:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-primary) 18%, transparent);
+    }
+
+    /* Lien : soulignement qui se dessine de gauche à droite, texte qui passe en ambre */
+    .link-draw {
+        text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-size: 0 1px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        transition: background-size 0.2s ease, color 0.2s ease;
+    }
+    .link-draw:hover,
+    .link-draw:focus-visible {
+        background-size: 100% 1px;
+        color: var(--color-secondary);
+    }
+
+    /* Lien de navigation : texte qui s'éclaircit et barre verte dessous */
+    .nav-link {
+        position: relative;
+        transition: color 0.2s ease;
+    }
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.25rem;
+        height: 2px;
+        background: var(--color-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease;
+    }
+    .nav-link:hover,
+    .nav-link:focus-visible {
+        color: var(--color-heading);
+    }
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+        transform: scaleX(1);
+    }
+}
